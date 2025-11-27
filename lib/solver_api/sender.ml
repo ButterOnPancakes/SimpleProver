@@ -33,5 +33,4 @@ let send_to_z3 formula =
   close_out oc;
 
   let output = Utils.run_terminal "z3 output/smtlib.smt2" in
-
   parse_z3_output (output)

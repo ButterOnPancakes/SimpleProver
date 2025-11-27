@@ -12,9 +12,9 @@
 %%
 
 main:
-  | SAT model EOF     { Sat $2 }
-  | UNSAT EOF         { Unsat None }
-  | UNKNOWN EOF       { Unknown }
+  | SAT model     { Sat $2 }
+  | UNSAT         { Unsat None }
+  | UNKNOWN       { Unknown }
   ;
 
 model:

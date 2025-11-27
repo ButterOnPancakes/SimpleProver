@@ -4,11 +4,11 @@ open Parser.Main
 open Solver_api.Smtlib_converter
 
 let print_output = function
-    |Unsat _ -> print_endline "Valid"
+    |Unsat _ -> print_endline "Program valid"
     |Sat model ->
       let model_str = List.fold_left (fun acc (var, value) -> Printf.sprintf "%s%s = %d\n" acc var value) "" model in
-      Printf.printf "Not Valid\nExample:\n%s\nMaybe an invariant is not strong enought ?\n" model_str
-    |Unknown -> print_endline "Unknown"
+      print_endline (Printf.sprintf "Program not valid\nCounter-example:\n%s\nStopping verification." model_str)
+    |Unknown -> print_endline "Solver returned Unknown"
 
 let rec verif_vcs = function
   |[] -> print_endline "End of verification conditions (All Valid)."; true
