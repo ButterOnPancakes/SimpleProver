@@ -1,3 +1,0 @@
-(test
- (name test_simple_prover)
- (libraries core prover))

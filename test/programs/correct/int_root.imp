@@ -1,0 +1,12 @@
+requires {n > 0}
+ensures {(a * a <= n) && (n <= (a + 1) * (a + 1))}
+a := 0;
+s := 1;
+t := 1;
+while (s <= n) 
+    invariant { (a * a <= n) and (s == (a + 1) * (a + 1) and t == 2 * a + 1) }
+    do  (
+        a := a + 1;
+        s := s + t + 2;
+        t := t + 2
+    )

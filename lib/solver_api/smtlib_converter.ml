@@ -1,6 +1,11 @@
 open Core.Ast
 open Printf
 
+type smt_result =
+  | Unsat of string option
+  | Sat of (string * int) list
+  | Unknown
+
 let rec smtlib_of_arith a = match a with
   | Int i -> string_of_int i
   | Var v -> v
@@ -24,3 +29,4 @@ let rec smtlib_of_formula f = match f with
   | LtF (a1, a2) -> sprintf "(< %s %s)" (smtlib_of_arith a1) (smtlib_of_arith a2)
   | GtF (a1, a2) -> sprintf "(> %s %s)" (smtlib_of_arith a1) (smtlib_of_arith a2)
   | GeqF (a1, a2) -> sprintf "(>= %s %s)" (smtlib_of_arith a1) (smtlib_of_arith a2)
+

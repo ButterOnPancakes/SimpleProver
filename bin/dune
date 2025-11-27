@@ -1,4 +1,4 @@
 (executable
  (public_name simple_prover)
  (name main)
- (libraries core parser prover solver_api))
+ (libraries core parser prover interpreter solver_api))

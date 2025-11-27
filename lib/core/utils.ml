@@ -47,4 +47,8 @@ let rec string_of_command = function
     "while " ^ string_of_bool cond ^ " do " ^ string_of_command body ^ " done"
 
 let string_of_program prog =
-  string_of_formula prog.precondition ^ "\n" ^ string_of_command prog.body ^ "\n" ^ string_of_formula prog.postcondition
+  "Precondition: " ^
+  string_of_formula prog.precondition ^ "\n" ^ 
+  string_of_command prog.body ^ "\n" ^ 
+  "Postcondition: " ^
+  string_of_formula prog.postcondition

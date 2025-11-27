@@ -1,3 +1,8 @@
 (library
  (name solver_api)
- (libraries core unix))
+ (libraries core unix str))
+
+(menhir
+ (modules parser))
+
+(ocamllex lexer)

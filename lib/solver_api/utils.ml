@@ -17,7 +17,6 @@ let rec remove_duplicates l =
   | h :: t ->
     let acc = remove_duplicates t in
     if contains acc h then acc else h :: acc
-;;
 
 let rec get_vars_from_arith = function
   |Int _ -> []
