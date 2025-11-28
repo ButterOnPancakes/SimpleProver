@@ -5,4 +5,4 @@ Dependencies :
  - z3 installed as a command-line tool
  - dune, menhir, ocamllexer, unix, str (all opam packages)
 
-To execute : dune exec simple_prover <filepath>
+To execute : dune exec simple_prover 'filepath'
