@@ -27,6 +27,8 @@ let send_to_z3 formula =
     Printf.sprintf "(assert %s)\n" (Smtlib_converter.smtlib_of_formula formula) ^
     "(check-sat)\n(get-model)"
   in
+
+  if not (Sys.file_exists "output") then Sys.mkdir "output" 0o777;
   
   let oc = open_out "output/smtlib.smt2" in
   Printf.fprintf oc "%s\n" message;
